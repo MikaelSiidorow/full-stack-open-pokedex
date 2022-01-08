@@ -1,0 +1,6 @@
+A linting tool used for Python could be Pylint. It can be integrated into a single developer's workflow through Visual Studio Code, but it can also be run from the command line and automatically in a CI setup.
+There are many testing frameworks available but one that could be used for the project is Pytest. While not easily compatible with other testing frameworks, it supports various types of testing in itself and be implemented in a CI pipeline.
+Since Python is an interpreted language building "building" mainly consists of the earlier point which is test execution and not compilation.
+Some paid alternatives for a CI setup are for example CircleCI (starting $39/mo), TeamCity (starting $299) and Bamboo (starting $10). Some of these also offer free licenses with limitations.
+
+This setup would be better hosted in a cloud-based environment for easier config in a small team and likely a lower cost. Paying for a server likely would give you greater hardware than required for a small six person project and it could end up wasted. But before coming to that decision, you would need to know the size of the project to make a proper judgement. Furthermore, if the project requires a GPU for testing, then a cloud-based solution would not work and you would need a self-hosted setup.
