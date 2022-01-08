@@ -35,3 +35,4 @@ jobs:
           heroku_email: "mikael.siidorow@aalto.fi"
           healthcheck: "https://enigmatic-taiga-67856.herokuapp.com/health"
           checkstring: "ok"
+          rollbackonhealthcheckfailed: true
