@@ -34,7 +34,7 @@ jobs:
         env:
           COMMIT_MESSAGES: ${{ toJson(github.event.commits.*.message) }}
           COMMIT_FILTER: "#skip"
-        if: ${{ github.event_name == 'push' && !contains($COMMIT_MESSAGES, COMMIT_FILTER)}}
+        if: ${{ github.event_name == 'push' && !contains("$COMMIT_MESSAGES", "$COMMIT_FILTER")}}
         uses: akhileshns/heroku-deploy@v3.12.12
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
@@ -48,7 +48,7 @@ jobs:
         env:
           COMMIT_MESSAGES: ${{ toJson(github.event.commits.*.message) }}
           COMMIT_FILTER: "#skip"
-        if: ${{ github.event_name == 'push' && !contains($COMMIT_MESSAGES, COMMIT_FILTER)}}
+        if: ${{ github.event_name == 'push' && !contains("$COMMIT_MESSAGES", "$COMMIT_FILTER")}}
         uses: anothrNick/github-tag-action@1.33.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
