@@ -1,0 +1,14 @@
+name: Periodic Health Check
+
+on:
+  schedule:
+    - cron: '0 17-21 * * *'
+
+jobs:
+  health_check:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Check the deployed service URL
+        uses: jtalk/url-health-check-action@74726480338ca80a0740c2fbc31bb577bb5ad1b0
+        with:
+          url: https://enigmatic-taiga-67856.herokuapp.com/health
