@@ -1,0 +1,16 @@
+name: Telegram Notification
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-18.04
+    steps:
+      - name: send telegram message on push
+        uses: appleboy/telegram-action@2efd23283ae25229a0b4d315d5d33f73b346ef99
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
