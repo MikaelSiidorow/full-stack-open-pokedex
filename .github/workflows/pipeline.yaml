@@ -31,9 +31,6 @@ jobs:
           start: npm run start-prod
           wait-on: http://localhost:5000
       - name: deploy
-        env:
-          COMMIT_MESSAGES: ${{ ) }}
-          COMMIT_FILTER: "#skip"
         if: ${{ github.event_name == 'push' && !contains(toJson(github.event.commits.*.message, "#skip")}}
         uses: akhileshns/heroku-deploy@v3.12.12
         with:
@@ -45,9 +42,6 @@ jobs:
           rollbackonhealthcheckfailed: true
       - uses: actions/checkout@v2
       - name: Bump version and push tag
-        env:
-          COMMIT_MESSAGES: ${{ toJson(github.event.commits.*.message) }}
-          COMMIT_FILTER: "#skip"
         if: ${{ github.event_name == 'push' && !contains(toJson(github.event.commits.*.message, "#skip")}}
         uses: anothrNick/github-tag-action@1.33.0
         env:
